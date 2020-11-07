@@ -1,0 +1,49 @@
+//printing elements without giving the size or n value ,head return //
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#include "mutiple noded class.cpp"
+
+
+node* takeinput()
+{
+	int data;
+	cin>>data;
+	node *head=NULL;
+	while(data !=-1)
+	{
+		node *newnode=new node(data);
+		//node n(data)//ye statically hai
+		if(head==NULL)
+		{
+			head=newnode;
+			}	
+			else{
+				node*temp =head;
+				while(temp->next!=NULL)
+				{
+					temp=temp->next;
+				}
+				
+				temp->next=newnode;
+			}
+			cin>>data;
+		}
+		return head;
+}
+
+void print(node *head)
+{
+	while(head!=NULL)
+	{
+		cout<<head->data<<" ";
+		head=head->next;
+	}
+}
+
+int main()
+	{
+		node *head=takeinput();
+		print(head);
+	}
